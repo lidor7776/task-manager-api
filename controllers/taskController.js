@@ -22,6 +22,7 @@ export const createTask = async (req, res) => {
 export const getTasks = async (req, res) => {
   try {
     const tasks = await Task.find({ owner: req.user });
+    res.json(tasks);
   } catch (err) {
     res.status(500).json({ message: "Error fetching tasks" });
   }
